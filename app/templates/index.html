@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plate Manager</title>
+</head>
+<body>
+    <h2>Authorized License Plates</h2>
+    <form method="POST">
+        <input type="text" name="plate" placeholder="Enter plate" required>
+        <button type="submit">Add Plate</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Plate</th>
+            <th>Action</th>
+        </tr>
+        {% for plate in plates %}
+        <tr>
+            <td>{{ plate[0] }}</td>
+            <td>{{ plate[1] }}</td>
+            <td><a href="/delete/{{ plate[0] }}">Remove</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
